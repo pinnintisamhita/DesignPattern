@@ -1,0 +1,37 @@
+interface Car{
+   void drive(); 
+}
+class BMW implements Car{
+    public void drive()
+    {
+        System.out.println("BMW driving...");
+    }
+}
+class Audi implements Car{
+    public void drive()
+    {
+        System.out.println("Audi driving...");
+    }
+}
+
+class CarFactory{
+    public static Car getCar(String type){
+        if(type.equalsIgnoreCase("BMW"))
+        {
+            return new BMW();
+        }else if(type.equalsIgnoreCase("Audi"))
+        {
+            return new Audi();
+        }
+        return null;
+    }
+}
+class MyClass {
+    public static void main(String[] args)
+    {
+           Car car = CarFactory.getCar("BMW");
+           car.drive();
+    }
+ 
+
+}

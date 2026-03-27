@@ -1,0 +1,81 @@
+interface UiFactory {
+    public TextButton createTextButton(); 
+    public Background createBackground(); } 
+    
+    
+class MacOs implements UiFactory{ 
+    @Override
+    public TextButton createTextButton() 
+    { 
+        return new MacOsButton(); 
+        
+    } @Override Background createBackground() { 
+        
+        return new MacOsBackground(); 
+        
+    } 
+    
+} 
+class Windows implements UiFactory{ 
+    
+    @Override public TextButton createTextButton() { 
+        
+        return new WindowsButton(); 
+        
+    } 
+    @Override public Background createBackground() 
+    { 
+        return new WindowsBackground(); 
+        
+    } 
+    
+} 
+interface TextButton{
+    
+    public void createTextButton(); 
+    
+} 
+
+interface Background{ 
+    
+    public void createBackground(); 
+    
+} 
+class MacOsButton implements TextButton 
+{
+    @Override public void createTextButton
+     { 
+         System.out.println(Mac Button Created); 
+         
+     } } 
+     
+class WindowsButton implements TextButton { 
+    
+    @Override public void createTextButton() { 
+        
+        System.out.println(Windows Button Created); 
+        
+    } 
+    
+} class MacOsBackground implements Background { 
+    
+    @Override public void createBackground()
+    { 
+        System.out.println(Mac Background Created); 
+        
+    } 
+    
+} 
+class WindowsBackground implements Background {
+    
+    @Override public void createBackground()
+    {
+        System.out.println(Windows Background Created);
+        } } 
+        
+public class Myclass{ 
+    public static void main(String args[])
+    { 
+        UiFactory uifactory = new Windows(); 
+        TextButton textButton = uifactory.createTextButton();
+        textButton.createTextButton(); } }
